@@ -19,7 +19,7 @@ public class Day3 : AocBase<string>
     {
         int count = 0;
         
-        string pattern = "mul\\([0-9]{0,3}\\,[0-9]{0,3}\\)";
+        string pattern = "mul\\(\\d{0,3}\\,\\d{0,3}\\)";
         foreach (Match match in Regex.Matches(input, pattern))
         {
             string[] parts = match.Value.Split(',', '(', ')');
