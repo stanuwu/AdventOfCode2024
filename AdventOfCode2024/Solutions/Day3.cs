@@ -5,6 +5,9 @@ namespace AdventOfCode2024.Solutions;
 
 public class Day3 : AocBase<string>
 {
+    private Regex _pattern1 = new Regex("mul\\(\\d{0,3}\\,\\d{0,3}\\)");
+    private Regex _pattern2 = new Regex("(mul\\([0-9]{0,3}\\,[0-9]{0,3}\\))|(don't)|(do)");
+    
     public override int GetDay()
     {
         return 3;
@@ -19,8 +22,7 @@ public class Day3 : AocBase<string>
     {
         int count = 0;
         
-        string pattern = "mul\\(\\d{0,3}\\,\\d{0,3}\\)";
-        foreach (Match match in Regex.Matches(input, pattern))
+        foreach (Match match in _pattern1.Matches(input))
         {
             string[] parts = match.Value.Split(',', '(', ')');
             count += Convert.ToInt32(parts[1]) * Convert.ToInt32(parts[2]);
@@ -34,8 +36,7 @@ public class Day3 : AocBase<string>
         int count = 0;
         bool enabled = true;
         
-        string pattern = "(mul\\([0-9]{0,3}\\,[0-9]{0,3}\\))|(don't)|(do)";
-        foreach (Match match in Regex.Matches(input, pattern))
+        foreach (Match match in _pattern2.Matches(input))
         {
             switch (match.Value)
             {

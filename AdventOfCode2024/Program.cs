@@ -5,3 +5,4 @@ Console.WriteLine("AOC 2024 | @stanuwu\n");
 AocSolver.Solve(new Day1());
 AocSolver.Solve(new Day2());
 AocSolver.Solve(new Day3());
+AocSolver.Solve(new Day4());
